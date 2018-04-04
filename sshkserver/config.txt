@@ -1,0 +1,3 @@
+dnf -y install nmap procps krb5-libs krb5-workstation openssh openssh-server openssh-clients passwd
+ssh-keygen -A
+
