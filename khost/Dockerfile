@@ -1,5 +1,5 @@
 # @edt ASIX-m11 Curs 2017-2018
-# kerberos ssh sever
+# kerberos host
 #servidor ssh amb kerberos creacio interactiu
 #-----------------------------------------------------------------------
 FROM fedora:24
