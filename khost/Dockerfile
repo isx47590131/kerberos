@@ -10,10 +10,11 @@ RUN mkdir /opt/docker/
 COPY * /opt/docker/
 RUN chmod +x /opt/docker/create_users.sh
 RUN rm -rf /var/run/nologin
-COPY /opt/docker/krb5.conf /etc/
-COPY /etc/pam.d /etc/oldpam.d
-COPY /opt/docker/chfn /etc/pam.d/
-COPY /opt/docker/login /etc/pam.d/
-COPY /opt/docker/system-auth /etc/pam.d/
+RUN cp /opt/docker/krb5.conf /etc/
+RUN cp -r /etc/pam.d /etc/oldpam.d
+RUN cp /opt/docker/chfn /etc/pam.d/
+RUN cp /opt/docker/login /etc/pam.d/
+RUN cp /opt/docker/system-auth /etc/pam.d/
+RUN sh /opt/docker/create_users.sh
 WORKDIR /opt/docker/
 CMD ["/bin/bash"]

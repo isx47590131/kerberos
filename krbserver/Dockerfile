@@ -10,8 +10,9 @@ RUN dnf -y install vim nmap iputils iproute mlocate procps krb5-server \
 RUN mkdir /opt/docker/
 COPY * /opt/docker/
 RUN chmod +x /opt/docker/startup.sh /opt/docker/create_users.sh
-ADD krb5.conf /etc/
-ADD kdc.conf /var/kerberos/krb5kdc/
-ADD kadm5.acl /var/kerberos/krb5kdc/
+RUN cp krb5.conf /etc/
+RUN cp kdc.conf /var/kerberos/krb5kdc/
+RUN cp kadm5.acl /var/kerberos/krb5kdc/
+RUN sh /opt/docker/create_users.sh
 WORKDIR /opt/docker/
 CMD ["/bin/bash"]

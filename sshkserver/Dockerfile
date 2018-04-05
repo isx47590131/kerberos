@@ -10,8 +10,9 @@ COPY * /opt/docker/
 RUN chmod +x /opt/docker/startup.sh /opt/docker/create_users.sh
 RUN ssh-keygen -A
 RUN rm -rf /var/run/nologin
-COPY /opt/docker/krb5.conf /etc/
-COPY /opt/docker/sshd_config /etc/ssh/ 
+RUN cp /opt/docker/krb5.conf /etc/
+RUN cp /opt/docker/sshd_config /etc/ssh/ 
+RUN sh /opt/docker/create_users.sh
 WORKDIR /opt/docker/
 CMD ["/bin/bash"]
 
