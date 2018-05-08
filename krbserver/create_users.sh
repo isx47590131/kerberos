@@ -1,9 +1,9 @@
 #!/bin/bash
-kadmin.local -q "addprinc arnau" -w karnau
-kadmin.local -q "addprinc pere" -w kpere
-kadmin.local -q "addprinc pere/admin" -w kpere
-kadmin.local -q "addprinc pau" -w kpau
-kadmin.local -q "addprinc marta" -w kmarta
-kadmin.local -q "addprinc jordi" -w kjordi
+/usr/sbin/kdb5_util create -s -P jupiter 
+kadmin.local -q "addprinc arnau -pw karnau"
+kadmin.local -q "addprinc pere -pw kpere "
+kadmin.local -q "addprinc pau -pw kpau"
+kadmin.local -q "addprinc marta -pw kmarta"
+kadmin.local -q "addprinc jordi -pw kjordi"
 
 
